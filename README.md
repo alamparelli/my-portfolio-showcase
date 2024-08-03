@@ -1,70 +1,126 @@
-# Getting Started with Create React App
+# Project Portfolio - L1
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. **Idea**
 
-## Available Scripts
+- **Project Objectives**: The first project will be to set up a website with 2 pages
+  - My Info & Skills
+  - My Various Projects
+- **User functionalities**:
+  1. List
+     1. My info
+     2. My skills
+     3. List of social media links
+     4. Stay updated (Nice to have)
+  2. List of completed projects
+  3. Contact form
+  4. Manage displayed projects
+     1. Manually | Phase 1
+     2. Via admin page | Phase 2
 
-In the project directory, you can run:
+- **Specifications**:
+  - Available 24/7
+  - Hosted behind a custom URL & HTTPS
 
-### `npm start`
+## 2. **Preparation**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Stack Used**:
+  - FrontEnd development
+    - React
+    - TailWind CSS
+    - Node (Backend)
+      - Manage Projects
+        - MongoDB
+      - Mailing routing
+        - Email sending management
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 3. **Development**
 
-### `npm test`
+- **Define User Stories**
+  - END USER
+    - US1: As a user, I click on the page/project list: by Alessandro
+    - US2: As a user, I browse the info related to Alessandro's account
+    - US3: As a user, I contact Alessandro via the contact form
+    - US4: As a user, I leave my email address to follow Alessandro's upcoming projects or announcements
+  - OWNER
+    - US5: As the owner, I can add new projects from the admin interface
+    - US6: As the owner, I can modify already visible projects from the admin interface
+    - US7: As the owner, I can delete already visible projects from the admin interface
+- **CI/CD**:
+  - Deployment PIPELINE: From GITHUB Actions
+  - Test PIPELINE: From GITHUB Actions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 4. **Tasks**
 
-### `npm run build`
+### Planning & Design
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [ ] Create Wireframes and Mockups
+  - Design the layout for the “My Info & Skills” and “My Various Projects” pages.
+- [ ] Set up the DataModel of Project
+  - Identify all the required data to be filled in the db
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Development
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [ ] Set Up Frontend Environment
+  - Initialize the React project.
+  - Install TailWind CSS.
+- [ ] Create “My Info & Skills” Page
+  - Develop the layout and components for displaying personal information and skills.
+- [ ] Create “My Various Projects” Page
+  - Develop the layout and components for displaying a list of projects.
+- [ ] Implement Social Media Links
+  - Add components to list and link to social media profiles.
+- [ ] Implement “Stay Updated” Feature (Nice to have)
+  - Create a subscription form for users to enter their email addresses.
+- [ ] Set Up Backend Environment
+  - Initialize the Node.js project.
+  - Set up MongoDB for managing projects and email subscriptions.
+- [ ] Develop Contact Form
+  - Create the contact form component and connect it to the backend for email sending.
+- [ ] Implement Project Management (Phase 1)
+  - Add functionality to manually manage (add, edit, delete) projects through a backend script (JSON file that populate the DB)
+- [ ] Implement Admin Page (Phase 2)
+  - Develop the admin interface for managing projects via a dedicated page.
 
-### `npm run eject`
+### Backend Development
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [ ] Set Up MongoDB Database
+  - Configure the MongoDB database and set up collections for projects and subscriptions.
+- [ ] Implement Project Management API
+  - Create API endpoints for adding, editing, and deleting projects.
+- [ ] Implement Email Sending Functionality
+  - Set up mailing routing for contact form submissions.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Testing
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- [ ] Write Unit Tests for Frontend
+  - Develop unit tests for React components.
+- [ ] Write Unit Tests for Backend
+  - Develop unit tests for Node.js API endpoints.
+- [ ] Perform Integration Testing
+  - Ensure frontend and backend integration works smoothly.
+- [ ] User Acceptance Testing
+  - Validate the User Stories
+- [ ] Gather Dev Feedback for Improvments
+  - analyze with ChatGpt feedback
+- [ ] Gather Dev Human Feedback
+  - publish on dev.to and hashnode
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- [ ] Set Up CI/CD Pipeline
+  - Configure GitHub Actions for automated testing and deployment.
+- [ ] Set Up Hosting Environment
+  - Choose a hosting provider and configure the environment.
+- [ ] Deploy Application
+  - Deploy the application to the hosting provider using the CI/CD pipeline.
+- [ ] Configure Custom Domain & HTTPS
+  - Set up a custom URL and configure HTTPS.
 
-### `npm run build` fails to minify
+### Maintenance
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [ ] Monitor Application
+  - Set up monitoring tools to ensure the application is running smoothly.
+- [ ] Set Up Regular Backups
+  - Implement regular database backup procedures.
+- [ ] Plan for Regular Updates
+  - Schedule regular updates and maintenance tasks.
