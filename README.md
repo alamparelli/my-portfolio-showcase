@@ -6,6 +6,7 @@
   - My Info & Skills
   - My Various Projects
 - **User functionalities**:
+
   1. List
      1. My info
      2. My skills
@@ -38,13 +39,14 @@
 - **Define User Stories**
   - END USER
     - US1: As a user, I click on the page/project list: by Alessandro
-    - US2: As a user, I browse the info related to Alessandro's account
-    - US3: As a user, I contact Alessandro via the contact form
-    - US4: As a user, I leave my email address to follow Alessandro's upcoming projects or announcements
+    - US2: As a user, I select a project in the list and i have a page with all the information linked
+    - US3: As a user, I browse the info related to Alessandro's account
+    - US4: As a user, I contact Alessandro via the contact form
+    - US5: As a user, I leave my email address to follow Alessandro's upcoming projects or announcements
   - OWNER
-    - US5: As the owner, I can add new projects from the admin interface
-    - US6: As the owner, I can modify already visible projects from the admin interface
-    - US7: As the owner, I can delete already visible projects from the admin interface
+    - US6: As the owner, I can add new projects from the admin interface
+    - US7: As the owner, I can modify already visible projects from the admin interface
+    - US8: As the owner, I can delete already visible projects from the admin interface
 - **CI/CD**:
   - Deployment PIPELINE: From GITHUB Actions
   - Test PIPELINE: From GITHUB Actions
