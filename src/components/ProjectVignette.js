@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
 
-export const ProjectVignette = ({ id, img }) => {
-	const imgSel = `https://picsum.photos/id/${img}/200`;
+export const ProjectVignette = ({ id, img, name }) => {
 	return (
 		<div className="p-2">
 			<Link className="rounded-lg" to="/project">
-				<img src={imgSel} alt="Project" />
-				<p className="font-bold">Project {id}</p>
+				<img src={img} alt="Project" />
+				<p className="font-bold">{name}</p>
 			</Link>
 		</div>
 	);
