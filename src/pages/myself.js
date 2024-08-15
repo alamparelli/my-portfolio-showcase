@@ -37,7 +37,8 @@ const SocialLinks = () => {
 			/>
 			<div className="grid grid-cols-none gap-4">
 				<p className="font-light">Follow me on</p>
-				<div className="grid grid-cols-4 gap-4 justify-self-center">
+				{/* <div className="grid grid-cols-4 gap-4 justify-self-center"> */}
+				<div className="grid grid-cols-3 gap-4 justify-self-center">
 					<a
 						href="https://github.com/alamparelli"
 						class="fa fa-github"
@@ -53,7 +54,7 @@ const SocialLinks = () => {
 						class="fa fa-twitter"
 						alt="X"
 					></a>
-					<a href="#" class="fa fa-rss" alt="Subscribe"></a>
+					{/* <a href="#" class="fa fa-rss" alt="Subscribe"></a> */}
 				</div>
 			</div>
 		</div>

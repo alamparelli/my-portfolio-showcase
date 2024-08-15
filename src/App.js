@@ -13,6 +13,7 @@ function App() {
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			</header>
 			<NavigationBar />
+			<hr className="pt-7 pb-4"></hr>
 			<div className="font-mono px-20 py-5 sm:px-32 lg:px-80">
 				<Routes>
 					<Route
@@ -21,7 +22,6 @@ function App() {
 						element={
 							<>
 								<ContactForm />
-								<SubscribeForm />
 							</>
 						}
 					/>
@@ -30,6 +30,8 @@ function App() {
 					<Route exact path="/project" element={<Project />} />
 				</Routes>
 			</div>
+			<hr className="pt-5 pb-7"></hr>
+
 			<Footer />
 		</Router>
 	);

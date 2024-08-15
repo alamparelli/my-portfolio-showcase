@@ -2,11 +2,9 @@ import { Link } from 'react-router-dom';
 
 const ProjectTitle = () => {
 	return (
-		<div>
-			<p className="text-xl font-bold pb-5 flex  justify-center">
-				Project Title
-			</p>
-		</div>
+		<h1 className="pb-5 font-bold text-3xl flex  justify-center">
+			Project Title
+		</h1>
 	);
 };
 
@@ -39,7 +37,7 @@ const Project = () => {
 			<ProjectDescription />
 			<ProjectImageGalerie />
 			<Link
-				className="rounded-lg hover:bg-slate-200 font-bold p-3 flex  justify-center"
+				className="rounded-lg font-bold p-3 flex  justify-center"
 				to="/projects"
 			>
 				Back to Projects
