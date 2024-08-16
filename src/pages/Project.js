@@ -1,41 +1,51 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-const ProjectTitle = () => {
+const ProjectTitle = ({ title }) => {
 	return (
-		<h1 className="pb-5 font-bold text-3xl flex  justify-center">
-			Project Title
-		</h1>
+		<h1 className="pb-5 font-bold text-3xl flex justify-center">{title}</h1>
 	);
 };
 
-const ProjectImageGalerie = () => {
-	const imgSel = `https://picsum.photos/id/42/200`;
+const ProjectImageGalerie = ({ images }) => {
+	const imgSel = images.map((image) => (
+		<img className="m-2 p-1" src={image} alt="" />
+	));
 	return (
-		<div className="size-full sm:size-auto">
-			<img src={imgSel} alt="" />
-		</div>
+		<div className="size-full sm:size-auto grid sm:grid-cols-3">{imgSel}</div>
 	);
 };
 
-const ProjectDescription = () => {
+const ProjectDescription = ({ project }) => {
+	const tStacks = project.techStacks.map((t) => <li>{t}</li>);
+
 	return (
 		<div className="pb-5">
-			<p>
-				orem, ipsum dolor sit amet consectetur adipisicing elit. Neque quasi
-				possimus distinctio, quisquam asperiores incidunt provident consequuntur
-				quibusdam nostrum dolores quia libero! Veritatis distinctio cupiditate
-				animi, beatae minus quisquam quibusdam.
-			</p>
+			<h2 className="mb-3">{project.shortDescription}</h2>
+			<ul className="indent-0 list-inside list-disc mb-3">
+				<li>
+					<a href={project.url}>Website : {project.url}</a>
+				</li>
+				<li>
+					<a href={project.githubPage}>GitHub repo : {project.githubPage}</a>
+				</li>
+				<li>
+					Stacks Used :
+					<ul className="indent-5 list-inside list-disc mb-3">{tStacks}</ul>
+				</li>
+			</ul>
+			<p>{project.description}</p>
 		</div>
 	);
 };
 
 const Project = () => {
+	const location = useLocation();
+	const project = location.state;
 	return (
 		<>
-			<ProjectTitle />
-			<ProjectDescription />
-			<ProjectImageGalerie />
+			<ProjectTitle title={project.name} />
+			<ProjectDescription project={project} />
+			<ProjectImageGalerie images={project.images} />
 			<Link
 				className="rounded-lg font-bold p-3 flex  justify-center"
 				to="/projects"

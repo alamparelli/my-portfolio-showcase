@@ -41,17 +41,17 @@ const SocialLinks = () => {
 				<div className="grid grid-cols-3 gap-4 justify-self-center">
 					<a
 						href="https://github.com/alamparelli"
-						class="fa fa-github"
+						className="fa fa-github"
 						alt="GitHub"
 					></a>
 					<a
 						href="https://www.linkedin.com/in/lamparellia/"
-						class="fa fa-linkedin"
+						className="fa fa-linkedin"
 						alt="Linkedin"
 					></a>
 					<a
 						href="https://x.com/a_lamparelli"
-						class="fa fa-twitter"
+						className="fa fa-twitter"
 						alt="X"
 					></a>
 					{/* <a href="#" class="fa fa-rss" alt="Subscribe"></a> */}
@@ -63,7 +63,7 @@ const SocialLinks = () => {
 
 function Me() {
 	return (
-		<div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+		<div className="grid grid-cols-2 sm:grid-cols-3 mx-0 2xl:mx-60 gap-4">
 			<ImageProfile />
 			<Bio />
 			<SocialLinks />

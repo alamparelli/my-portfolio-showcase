@@ -16,22 +16,13 @@ function App() {
 			<hr className="pt-7 pb-4"></hr>
 			<div className="font-mono px-20 py-5 sm:px-32 lg:px-80">
 				<Routes>
-					<Route
-						exact
-						path="/contact"
-						element={
-							<>
-								<ContactForm />
-							</>
-						}
-					/>
+					<Route exact path="/contact" element={<ContactForm />} />
 					<Route exact path="/" element={<Me />} />
 					<Route exact path="/projects" element={<ProjectsGalerie />} />
 					<Route exact path="/project" element={<Project />} />
 				</Routes>
 			</div>
 			<hr className="pt-5 pb-7"></hr>
-
 			<Footer />
 		</Router>
 	);
