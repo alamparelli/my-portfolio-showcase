@@ -5,8 +5,8 @@ export const portfolio = [
 		url: 'https://alpha-project.com',
 		githubPage: 'https://github.com/user/alpha-project',
 		images: [
-			'https://picsum.photos/600/400?random=1',
-			'https://picsum.photos/600/400?random=2',
+			'https://picsum.photos/id/1011/600/400',
+			'https://picsum.photos/id/1012/600/400',
 		],
 		shortDescription: 'A revolutionary platform for managing tasks.',
 		description:
@@ -21,8 +21,8 @@ export const portfolio = [
 		url: 'https://betastream.io',
 		githubPage: 'https://github.com/user/betastream',
 		images: [
-			'https://picsum.photos/600/400?random=3',
-			'https://picsum.photos/600/400?random=4',
+			'https://picsum.photos/id/1013/600/400',
+			'https://picsum.photos/id/1014/600/400',
 		],
 		shortDescription: 'A next-gen streaming platform for gamers.',
 		description:
@@ -37,8 +37,8 @@ export const portfolio = [
 		url: 'https://gammacommerce.com',
 		githubPage: 'https://github.com/user/gammacommerce',
 		images: [
-			'https://picsum.photos/600/400?random=5',
-			'https://picsum.photos/600/400?random=6',
+			'https://picsum.photos/id/1015/600/400',
+			'https://picsum.photos/id/1016/600/400',
 		],
 		shortDescription: 'An e-commerce platform for small businesses.',
 		description:
@@ -53,8 +53,8 @@ export const portfolio = [
 		url: 'https://deltaai.tech',
 		githubPage: 'https://github.com/user/deltaai',
 		images: [
-			'https://picsum.photos/600/400?random=7',
-			'https://picsum.photos/600/400?random=8',
+			'https://picsum.photos/id/1031/600/400',
+			'https://picsum.photos/id/1018/600/400',
 		],
 		shortDescription: 'AI-powered analytics for business intelligence.',
 		description:
@@ -69,8 +69,8 @@ export const portfolio = [
 		url: 'https://epsilonhealth.com',
 		githubPage: 'https://github.com/user/epsilonhealth',
 		images: [
-			'https://picsum.photos/600/400?random=9',
-			'https://picsum.photos/600/400?random=10',
+			'https://picsum.photos/id/1019/600/400',
+			'https://picsum.photos/id/1020/600/400',
 		],
 		shortDescription: 'A digital health management platform.',
 		description:
@@ -85,8 +85,8 @@ export const portfolio = [
 		url: 'https://zetafinance.com',
 		githubPage: 'https://github.com/user/zetafinance',
 		images: [
-			'https://picsum.photos/600/400?random=11',
-			'https://picsum.photos/600/400?random=12',
+			'https://picsum.photos/id/1021/600/400',
+			'https://picsum.photos/id/1022/600/400',
 		],
 		shortDescription: 'A fintech solution for personal finance management.',
 		description:
@@ -101,8 +101,8 @@ export const portfolio = [
 		url: 'https://etalearn.com',
 		githubPage: 'https://github.com/user/etalearn',
 		images: [
-			'https://picsum.photos/600/400?random=13',
-			'https://picsum.photos/600/400?random=14',
+			'https://picsum.photos/id/1023/600/400',
+			'https://picsum.photos/id/1024/600/400',
 		],
 		shortDescription: 'An online learning platform for professionals.',
 		description:
@@ -117,8 +117,8 @@ export const portfolio = [
 		url: 'https://thetasocial.com',
 		githubPage: 'https://github.com/user/thetasocial',
 		images: [
-			'https://picsum.photos/600/400?random=15',
-			'https://picsum.photos/600/400?random=16',
+			'https://picsum.photos/id/1025/600/400',
+			'https://picsum.photos/id/1026/600/400',
 		],
 		shortDescription: 'A social networking platform for creatives.',
 		description:
@@ -133,8 +133,8 @@ export const portfolio = [
 		url: 'https://iotafitness.com',
 		githubPage: 'https://github.com/user/iotafitness',
 		images: [
-			'https://picsum.photos/600/400?random=17',
-			'https://picsum.photos/600/400?random=18',
+			'https://picsum.photos/id/1027/600/400',
+			'https://picsum.photos/id/1028/600/400',
 		],
 		shortDescription: 'A fitness app for tracking workouts and nutrition.',
 		description:
@@ -149,8 +149,8 @@ export const portfolio = [
 		url: 'https://kappatravel.com',
 		githubPage: 'https://github.com/user/kappatravel',
 		images: [
-			'https://picsum.photos/600/400?random=19',
-			'https://picsum.photos/600/400?random=20',
+			'https://picsum.photos/id/1029/600/400',
+			'https://picsum.photos/id/103/600/400',
 		],
 		shortDescription:
 			'A travel booking platform with personalized recommendations.',
