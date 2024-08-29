@@ -1,5 +1,5 @@
 const ImageProfile = () => {
-	const imgSel = `https://picsum.photos/id/354/200`;
+	const imgSel = `https://picsum.photos/500/500?random=100`;
 	return (
 		<img
 			className="size-full sm:size-auto col-span-full sm:col-span-1 rounded-3xl shadow-2xl bg-white "
