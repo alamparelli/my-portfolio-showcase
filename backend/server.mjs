@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import { connectionOption, uri } from './db/database.mjs';
 import routerProjects from './routes/projects.mjs';
 import routerSub from './routes/mailing.mjs';
+import bodyParser from 'body-parser';
 
 const app = express();
 const port = 8080;
@@ -12,6 +13,9 @@ const localhost = '127.0.0.1';
 
 app.use(helmet());
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 app.disable('x-powered-by');
 
 app.get('/', (req, res) => {
