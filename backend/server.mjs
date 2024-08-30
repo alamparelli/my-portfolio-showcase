@@ -1,7 +1,10 @@
 import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
-import { portfolio } from './portfolio.mjs';
+import mongoose from 'mongoose';
+import { connectionOption, uri } from './db/database.mjs';
+import routerProjects from './routes/projects.mjs';
+import routerSub from './routes/mailing.mjs';
 
 const app = express();
 const port = 8080;
@@ -12,12 +15,16 @@ app.use(cors());
 app.disable('x-powered-by');
 
 app.get('/', (req, res) => {
-	res.send('Hello World!');
+	res.send('It is working');
 });
 
-app.get('/projects', (req, res) => {
-	res.json(portfolio);
-});
+app.use(routerProjects);
+app.use(routerSub);
+
+mongoose
+	.connect(uri, connectionOption)
+	.then(() => console.log('MongoDB connected'))
+	.catch((err) => console.error('MongoDB connection error:', err));
 
 app.listen(port, localhost, () => {
 	console.log(`Example app listening on port ${port}`);
