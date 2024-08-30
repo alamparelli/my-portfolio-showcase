@@ -1,28 +1,28 @@
 /* eslint-disable sort-imports */
 import express from 'express';
 const router = express.Router();
-import { Project } from '../views/project.mjs';
+import { Contact } from '../views/mailing.mjs';
 
 router.use(express.json());
 
-const getProjects = async (req, res) => {
+const getContact = async (req, res) => {
 	try {
-		const answer = await Project.find();
+		const answer = await Contact.find();
 		res.status(200).json(answer);
 	} catch (error) {
 		res.status(406).send(error);
 	}
 };
 
-const setProject = async (req, res) => {
+const setContact = async (req, res) => {
 	try {
-		const answer = await Project.insertMany(req.body);
+		const answer = await Contact.insertMany(req.body);
 		await res.send(answer);
 	} catch (error) {
 		res.status(406).send(error);
 	}
 };
 
-router.route('/projects').get(getProjects).post(setProject);
+router.route('/mailing').get(getContact).post(setContact);
 
 export default router;

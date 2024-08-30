@@ -1,10 +1,10 @@
 import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
-import { portfolio } from './portfolio.mjs';
 import mongoose from 'mongoose';
 import { connectionOption, uri } from './db/database.mjs';
-import router from './routes/projects.mjs';
+import routerProjects from './routes/projects.mjs';
+import routerSub from './routes/mailing.mjs';
 
 const app = express();
 const port = 8080;
@@ -18,7 +18,8 @@ app.get('/', (req, res) => {
 	res.send('It is working');
 });
 
-app.use(router);
+app.use(routerProjects);
+app.use(routerSub);
 
 mongoose
 	.connect(uri, connectionOption)
