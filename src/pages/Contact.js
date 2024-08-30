@@ -1,5 +1,4 @@
 export const ContactForm = () => {
-	const imgSel = `https://picsum.photos/id/43/200`;
 	return (
 		<div>
 			<div className="p-3 mx-auto max-w-lg bg-white ">

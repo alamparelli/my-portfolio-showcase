@@ -1,5 +1,5 @@
 import './output.css';
-import { ContactForm, SubscribeForm } from './pages/Contact';
+import { ContactForm } from './pages/Contact';
 import Me from './pages/myself';
 import { ProjectsGalerie } from './pages/ProjectsGalerie';
 import { NavigationBar, Footer } from './components/Body';
