@@ -5,7 +5,7 @@ import { Contact } from '../views/mailing.mjs';
 configDotenv();
 
 export const contactForm = async (req, res) => {
-	const { firstName, lastName, email, message, subscribed } = req.body;
+	const { name, email, message, subscribed } = req.body;
 
 	const answer = await Contact.collection.insertOne(req.body);
 
@@ -21,7 +21,7 @@ export const contactForm = async (req, res) => {
 	const mailOptions = {
 		from: email,
 		to: process.env.TO_MAILBOX, // Ton email pour recevoir les messages
-		subject: `Message de ${firstName} ${lastName}`,
+		subject: `Message from ${name}`,
 		text: `${message} \n Has subscribed : ${subscribed.subscribed}`,
 	};
 
