@@ -7,6 +7,7 @@ const userName = process.env.USERNAME;
 const password = process.env.PASSWORD;
 const appName = process.env.APPNAME;
 const dbName = process.env.DBNAME;
+
 export const connectionOption = {
 	maxPoolSize: 10,
 	retryWrites: true,
