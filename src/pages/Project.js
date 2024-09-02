@@ -23,10 +23,26 @@ const ProjectDescription = ({ project }) => {
 			<h2 className="mb-3">{project.shortDescription}</h2>
 			<ul className="indent-0 list-inside list-disc mb-3">
 				<li>
-					<a href={project.url}>Website : {project.url}</a>
+					Website :
+					<a
+						href={project.url}
+						target="_blank"
+						rel="noreferrer"
+						className="text-decoration-line: underline"
+					>
+						{project.url}
+					</a>
 				</li>
 				<li>
-					<a href={project.githubPage}>GitHub repo : {project.githubPage}</a>
+					GitHub repo :
+					<a
+						href={project.githubPage}
+						target="_blank"
+						rel="noreferrer"
+						className="text-decoration-line: underline"
+					>
+						{project.githubPage}
+					</a>
 				</li>
 				<li>
 					Stacks Used :

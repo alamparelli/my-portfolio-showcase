@@ -43,17 +43,29 @@ const SocialLinks = () => {
 						href="https://github.com/alamparelli"
 						className="fa fa-github"
 						alt="GitHub"
-					></a>
+						target="_blank"
+						rel="noreferrer"
+					>
+						{' '}
+					</a>
 					<a
 						href="https://www.linkedin.com/in/lamparellia/"
 						className="fa fa-linkedin"
 						alt="Linkedin"
-					></a>
+						target="_blank"
+						rel="noreferrer"
+					>
+						{' '}
+					</a>
 					<a
 						href="https://x.com/a_lamparelli"
 						className="fa fa-twitter"
 						alt="X"
-					></a>
+						target="_blank"
+						rel="noreferrer"
+					>
+						{' '}
+					</a>
 					{/* <a href="#" class="fa fa-rss" alt="Subscribe"></a> */}
 				</div>
 			</div>
