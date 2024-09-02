@@ -28,7 +28,7 @@ export const ProjectsGalerie = () => {
 	const pList = data.map((project) => (
 		<ProjectVignette
 			key={project.projectNumber}
-			img={project.images[0]}
+			img={project.vignette_image}
 			name={project.name}
 			project={project}
 		/>
