@@ -1,0 +1,19 @@
+# Ignore environment file
+.env
+
+# Ignore ESLint and Prettier files
+.eslintrc.json
+.eslintignore
+.prettierrc
+.prettierignore
+
+# Optionally, you can exclude node_modules if you're installing dependencies inside the Docker container
+node_modules
+others
+
+# Other unnecessary files or directories
+.git
+.gitignore
+Dockerfile
+README.md
+React.md
