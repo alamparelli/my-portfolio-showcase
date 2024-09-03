@@ -7,6 +7,9 @@ const ProjectTitle = ({ title }) => {
 };
 
 const ProjectImageGalerie = ({ images }) => {
+	const imgSel = images.map((image) => (
+		<img className="m-2 p-1" src={image} alt="" />
+	));
 	return (
 		<div className="size-full sm:size-auto grid sm:grid-cols-3">
 			{images.map((image) => (
