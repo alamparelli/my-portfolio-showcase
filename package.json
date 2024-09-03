@@ -17,6 +17,7 @@
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
+		"build:css": "npx tailwindcss -o src/tailwind.css --minify",
 		"start": "nodemon server.mjs",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
