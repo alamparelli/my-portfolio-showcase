@@ -1,10 +1,10 @@
 import './output.css';
 import { ContactForm } from './pages/Contact';
-import Me from './pages/myself';
+import { Me } from './pages/myself';
 import { ProjectsGalerie } from './pages/ProjectsGalerie';
 import { NavigationBar, Footer } from './components/Body';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Project from './pages/Project';
+import { Project } from './pages/Project';
 
 function App() {
 	return (

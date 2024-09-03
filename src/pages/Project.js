@@ -7,17 +7,16 @@ const ProjectTitle = ({ title }) => {
 };
 
 const ProjectImageGalerie = ({ images }) => {
-	const imgSel = images.map((image) => (
-		<img className="m-2 p-1" src={image} alt="" />
-	));
 	return (
-		<div className="size-full sm:size-auto grid sm:grid-cols-3">{imgSel}</div>
+		<div className="size-full sm:size-auto grid sm:grid-cols-3">
+			{images.map((image) => (
+				<img className="m-2 p-1" src={image} alt="" />
+			))}
+		</div>
 	);
 };
 
 const ProjectDescription = ({ project }) => {
-	const tStacks = project.techStacks.map((t) => <li>{t}</li>);
-
 	return (
 		<div className="pb-5">
 			<h2 className="mb-3">{project.shortDescription}</h2>
@@ -46,7 +45,11 @@ const ProjectDescription = ({ project }) => {
 				</li>
 				<li>
 					Stacks Used :
-					<ul className="indent-5 list-inside list-disc mb-3">{tStacks}</ul>
+					<ul className="indent-5 list-inside list-disc mb-3">
+						{project.techStacks.map((t) => (
+							<li>{t}</li>
+						))}
+					</ul>
 				</li>
 			</ul>
 			<p>{project.description}</p>
@@ -54,7 +57,7 @@ const ProjectDescription = ({ project }) => {
 	);
 };
 
-const Project = () => {
+export const Project = () => {
 	const location = useLocation();
 	const project = location.state;
 	return (
@@ -71,5 +74,3 @@ const Project = () => {
 		</>
 	);
 };
-
-export default Project;
