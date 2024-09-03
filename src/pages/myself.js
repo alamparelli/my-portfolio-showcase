@@ -12,9 +12,11 @@ const ImageProfile = ({ image }) => {
 
 const Bio = ({ paragraphes }) => {
 	return (
-		<div className="col-span-2 py-5 sm:py-0">
+		<div className="col-span-2 py-5sm:py-0">
 			{paragraphes.map((paragraphe, index) => (
-				<p key={index}>{paragraphe}</p>
+				<p className="mb-5" key={index}>
+					{paragraphe}
+				</p>
 			))}
 		</div>
 	);
