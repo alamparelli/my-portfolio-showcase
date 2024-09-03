@@ -1,3 +1,4 @@
+# With Help of ChatGPT.
 # Stage 1: Build the React app with Tailwind CSS
 FROM node:16-alpine AS build
 
