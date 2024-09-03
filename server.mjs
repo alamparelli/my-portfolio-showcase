@@ -15,8 +15,8 @@ const port = 3000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// app.use(helmet());
-// app.use(cors());
+app.use(helmet());
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
