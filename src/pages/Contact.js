@@ -31,7 +31,7 @@ export const ContactForm = () => {
 			},
 		};
 
-		const answer = await fetch('http://localhost:8080/mailing', {
+		const answer = await fetch('/mailing', {
 			method: 'POST',
 			body: JSON.stringify(postAnswer),
 			headers: {

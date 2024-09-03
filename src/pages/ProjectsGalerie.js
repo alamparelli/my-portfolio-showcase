@@ -7,7 +7,7 @@ export const ProjectsGalerie = () => {
 	useEffect(() => {
 		const queryData = async () => {
 			try {
-				const query = await fetch('http://localhost:8080/projects');
+				const query = await fetch('/projects');
 				if (!query.ok) {
 					throw new Error(`Response status: ${query.status}`);
 				}

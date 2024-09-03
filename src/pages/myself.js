@@ -52,7 +52,7 @@ export const Me = () => {
 	useEffect(() => {
 		const queryData = async () => {
 			try {
-				const query = await fetch('http://localhost:8080/profile');
+				const query = await fetch('/profile');
 				if (!query.ok) {
 					throw new Error(`Response status: ${query.status}`);
 				}

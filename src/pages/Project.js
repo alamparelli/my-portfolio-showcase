@@ -70,7 +70,7 @@ export const Project = () => {
 			<ProjectImageGalerie images={project.images} />
 			<Link
 				className="rounded-lg font-bold p-3 flex  justify-center"
-				to="/projects"
+				to="/projectsgallery"
 			>
 				Back to Projects
 			</Link>
