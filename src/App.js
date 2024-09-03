@@ -1,10 +1,10 @@
 import './output.css';
-import { ContactForm } from './pages/Contact';
-import Me from './pages/myself';
-import { ProjectsGalerie } from './pages/ProjectsGalerie';
+import { ContactForm } from './pages/contact';
+import { Me } from './pages/myself';
+import { ProjectsGalerie } from './pages/projectsGalerie';
 import { NavigationBar, Footer } from './components/Body';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Project from './pages/Project';
+import { Project } from './pages/project';
 
 function App() {
 	return (
@@ -18,7 +18,7 @@ function App() {
 				<Routes>
 					<Route exact path="/contact" element={<ContactForm />} />
 					<Route exact path="/" element={<Me />} />
-					<Route exact path="/projects" element={<ProjectsGalerie />} />
+					<Route exact path="/projectsgallery" element={<ProjectsGalerie />} />
 					<Route exact path="/project" element={<Project />} />
 				</Routes>
 			</div>

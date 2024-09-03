@@ -11,26 +11,48 @@ const ProjectImageGalerie = ({ images }) => {
 		<img className="m-2 p-1" src={image} alt="" />
 	));
 	return (
-		<div className="size-full sm:size-auto grid sm:grid-cols-3">{imgSel}</div>
+		<div className="size-full sm:size-auto grid sm:grid-cols-3">
+			{images.map((image) => (
+				<img className="m-2 p-1" src={image} alt="" />
+			))}
+		</div>
 	);
 };
 
 const ProjectDescription = ({ project }) => {
-	const tStacks = project.techStacks.map((t) => <li>{t}</li>);
-
 	return (
 		<div className="pb-5">
 			<h2 className="mb-3">{project.shortDescription}</h2>
 			<ul className="indent-0 list-inside list-disc mb-3">
 				<li>
-					<a href={project.url}>Website : {project.url}</a>
+					Website :
+					<a
+						href={project.url}
+						target="_blank"
+						rel="noreferrer"
+						className="text-decoration-line: underline"
+					>
+						{project.url}
+					</a>
 				</li>
 				<li>
-					<a href={project.githubPage}>GitHub repo : {project.githubPage}</a>
+					GitHub repo :
+					<a
+						href={project.githubPage}
+						target="_blank"
+						rel="noreferrer"
+						className="text-decoration-line: underline"
+					>
+						{project.githubPage}
+					</a>
 				</li>
 				<li>
 					Stacks Used :
-					<ul className="indent-5 list-inside list-disc mb-3">{tStacks}</ul>
+					<ul className="indent-5 list-inside list-disc mb-3">
+						{project.techStacks.map((t) => (
+							<li>{t}</li>
+						))}
+					</ul>
 				</li>
 			</ul>
 			<p>{project.description}</p>
@@ -38,7 +60,7 @@ const ProjectDescription = ({ project }) => {
 	);
 };
 
-const Project = () => {
+export const Project = () => {
 	const location = useLocation();
 	const project = location.state;
 	return (
@@ -48,12 +70,10 @@ const Project = () => {
 			<ProjectImageGalerie images={project.images} />
 			<Link
 				className="rounded-lg font-bold p-3 flex  justify-center"
-				to="/projects"
+				to="/projectsgallery"
 			>
 				Back to Projects
 			</Link>
 		</>
 	);
 };
-
-export default Project;

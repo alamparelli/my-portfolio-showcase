@@ -7,7 +7,7 @@ export const ProjectsGalerie = () => {
 	useEffect(() => {
 		const queryData = async () => {
 			try {
-				const query = await fetch('http://localhost:8080/projects');
+				const query = await fetch('/projects');
 				if (!query.ok) {
 					throw new Error(`Response status: ${query.status}`);
 				}
@@ -17,7 +17,6 @@ export const ProjectsGalerie = () => {
 				throw new Error(`Error Fetching Data: ${error}`);
 			}
 		};
-
 		queryData();
 	}, []);
 
@@ -25,18 +24,18 @@ export const ProjectsGalerie = () => {
 		return <h2>Loading...</h2>;
 	}
 
-	const pList = data.map((project) => (
-		<ProjectVignette
-			key={project.projectNumber}
-			img={project.images[0]}
-			name={project.name}
-			project={project}
-		/>
-	));
-
 	return (
 		<div className="grid grid-cols-2 sm:grid-cols-3 mx-0 2xl:mx-60 gap-4">
-			<Suspense fallback={<Loading />}>{pList}</Suspense>
+			<Suspense fallback={<Loading />}>
+				{data.map((project) => (
+					<ProjectVignette
+						key={project.projectNumber}
+						img={project.vignette_image}
+						name={project.name}
+						project={project}
+					/>
+				))}
+			</Suspense>
 		</div>
 	);
 };

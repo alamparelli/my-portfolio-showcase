@@ -5,10 +5,10 @@ export const NavigationBar = () => {
 		<nav className="font-mono left-0 right-0 flex justify-center">
 			<div className="pt-9 pb-5 text-lg sm:text-3xl text-black items-center">
 				<Link className="rounded-lg font-bold p-3" to="/">
-					Profile
+					About Me |
 				</Link>
-				<Link className="rounded-lg font-bold p-3" to="/projects">
-					Projects
+				<Link className="rounded-lg font-bold p-3" to="/projectsgallery">
+					Projects |
 				</Link>
 				<Link className="rounded-lg  font-bold p-3" to="/contact">
 					Contact Me

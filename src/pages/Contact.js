@@ -31,7 +31,7 @@ export const ContactForm = () => {
 			},
 		};
 
-		const answer = await fetch('http://localhost:8080/mailing', {
+		const answer = await fetch('/mailing', {
 			method: 'POST',
 			body: JSON.stringify(postAnswer),
 			headers: {
@@ -44,7 +44,7 @@ export const ContactForm = () => {
 
 		if (subscribed) {
 			setResponseMessage(
-				'Thank you for your message and to have subscribed to a future newsletter system!'
+				'Thank you for your message and to have subscribed to a future newsletter!'
 			);
 		} else {
 			setResponseMessage('Thank you for your message !');

@@ -1,74 +1,82 @@
-const ImageProfile = () => {
-	const imgSel = `https://avatars.githubusercontent.com/u/5610813`;
+import { useState, useEffect } from 'react';
+
+const ImageProfile = ({ image }) => {
 	return (
 		<img
 			className="size-full sm:size-auto col-span-full sm:col-span-1 rounded-3xl shadow-2xl bg-white "
-			src={imgSel}
+			src={image}
 			alt="It's Me"
 		/>
 	);
 };
 
-const Bio = () => {
+const Bio = ({ paragraphes }) => {
 	return (
-		<div className="col-span-2 py-5 sm:py-0">
-			<p>
-				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque quasi
-				possimus distinctio, quisquam asperiores incidunt provident consequuntur
-				quibusdam nostrum dolores quia libero! Veritatis distinctio cupiditate
-				animi, beatae minus quisquam quibusdam.
-			</p>
-			<p>
-				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque quasi
-				possimus distinctio, quisquam asperiores incidunt provident consequuntur
-				quibusdam nostrum dolores quia libero! Veritatis distinctio cupiditate
-				animi, beatae minus quisquam quibusdam.
-			</p>
+		<div className="col-span-2 py-5sm:py-0">
+			{paragraphes.map((paragraphe, index) => (
+				<p className="mb-5" key={index}>
+					{paragraphe}
+				</p>
+			))}
 		</div>
 	);
 };
 
-const SocialLinks = () => {
-	return (
-		<div className="col-span-2 sm:col-span-3 p-5 flex justify-center">
-			<link
-				rel="stylesheet"
-				href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-			/>
-			<div className="grid grid-cols-none gap-4">
-				<p className="font-light">Follow me on</p>
-				{/* <div className="grid grid-cols-4 gap-4 justify-self-center"> */}
-				<div className="grid grid-cols-3 gap-4 justify-self-center">
+const SocialLinks = ({ media }) => (
+	<div className="col-span-2 sm:col-span-3 p-5 flex justify-center">
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+		<div className="grid grid-cols-none gap-4">
+			<p className="font-light">Follow me on</p>
+			<div className="grid grid-cols-3 gap-4 justify-self-center">
+				{media.map((platform, index) => (
 					<a
-						href="https://github.com/alamparelli"
-						className="fa fa-github"
-						alt="GitHub"
-					></a>
-					<a
-						href="https://www.linkedin.com/in/lamparellia/"
-						className="fa fa-linkedin"
-						alt="Linkedin"
-					></a>
-					<a
-						href="https://x.com/a_lamparelli"
-						className="fa fa-twitter"
-						alt="X"
-					></a>
-					{/* <a href="#" class="fa fa-rss" alt="Subscribe"></a> */}
-				</div>
+						key={index}
+						href={platform.href}
+						className={platform.className}
+						alt={platform.name}
+						target="_blank"
+						rel="noreferrer"
+					>
+						{' '}
+					</a>
+				))}
 			</div>
 		</div>
-	);
-};
+	</div>
+);
 
-function Me() {
+export const Me = () => {
+	const [data, setData] = useState(null);
+
+	useEffect(() => {
+		const queryData = async () => {
+			try {
+				const query = await fetch('/profile');
+				if (!query.ok) {
+					throw new Error(`Response status: ${query.status}`);
+				}
+				const json = await query.json();
+				setData(json);
+			} catch (error) {
+				console.error(`Error Fetching Data: ${error}`);
+			}
+		};
+
+		queryData();
+	}, []);
+
+	if (!data) {
+		return <div>Loading...</div>;
+	}
+
 	return (
 		<div className="grid grid-cols-2 sm:grid-cols-3 mx-0 2xl:mx-60 gap-4">
-			<ImageProfile />
-			<Bio />
-			<SocialLinks />
+			<ImageProfile image={data.image} />
+			<Bio paragraphes={data.paragraphes} />
+			<SocialLinks media={data.socialMedias} />
 		</div>
 	);
-}
-
-export default Me;
+};
