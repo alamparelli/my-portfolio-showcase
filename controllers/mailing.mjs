@@ -1,3 +1,4 @@
+import { validationResult } from 'express-validator';
 import nodemailer from 'nodemailer';
 import { configDotenv } from 'dotenv';
 import { Contact } from '../views/mailing.mjs';
@@ -5,8 +6,13 @@ import { Contact } from '../views/mailing.mjs';
 configDotenv();
 
 export const contactForm = async (req, res) => {
-	const { name, email, message, subscribed } = req.body;
+	const errors = validationResult(req);
+	if (!errors.isEmpty()) {
+		console.log({ errors: errors.array() });
+		return res.status(400).json({ errors: errors.array() });
+	}
 
+	const { name, email, message, subscribed } = req.body;
 	const answer = await Contact.collection.insertOne(req.body);
 
 	const transporter = nodemailer.createTransport({
@@ -20,7 +26,7 @@ export const contactForm = async (req, res) => {
 
 	const mailOptions = {
 		from: email,
-		to: process.env.TO_MAILBOX, // Ton email pour recevoir les messages
+		to: process.env.TO_MAILBOX,
 		subject: `Message from ${name}`,
 		text: `${message} \n Has subscribed : ${subscribed.subscribed}`,
 	};
