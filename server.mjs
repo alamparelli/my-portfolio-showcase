@@ -9,11 +9,28 @@ import routerProfile from './routes/profile.mjs';
 import bodyParser from 'body-parser';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import rateLimit from 'express-rate-limit';
 
 const app = express();
 const port = 3000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+const limiter = rateLimit({
+	// in 1 minute allow 30 Requests for 1 IP
+	windowMs: 5 * 60 * 1000,
+	max: 100,
+	standardHeaders: true,
+	legacyHeaders: false,
+});
+
+const limiterContactForm = rateLimit({
+	// in 1 minute allow 5 Requests for 1 IP
+	windowMs: 60 * 60 * 1000,
+	max: 5,
+	standardHeaders: true,
+	legacyHeaders: false,
+});
 
 app.use(helmet());
 app.use(cors());
@@ -22,11 +39,11 @@ app.use(bodyParser.json());
 
 app.disable('x-powered-by');
 
-app.use(routerProjects);
-app.use(routerSub);
-app.use(routerProfile);
+app.use(limiterContactForm, routerSub);
+app.use(limiter, routerProjects);
+app.use(limiter, routerProfile);
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'build/')));
 
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, 'build', 'index.html'));
