@@ -18,7 +18,7 @@ const __dirname = path.dirname(__filename);
 const limiter = rateLimit({
 	// in 1 minute allow 30 Requests for 1 IP
 	windowMs: 1 * 60 * 1000,
-	max: 30,
+	max: 60,
 	standardHeaders: true,
 	legacyHeaders: false,
 });
@@ -35,7 +35,7 @@ app.use(routerProjects);
 app.use(routerSub);
 app.use(routerProfile);
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'build/')));
 
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, 'build', 'index.html'));

@@ -8,6 +8,7 @@ export const ContactForm = () => {
 	});
 	const [subscribed, setSubscribed] = useState('');
 	const [submitted, setSubmitted] = useState(false);
+	const [anyError, setAnyError] = useState(false);
 	const [responseMessage, setResponseMessage] = useState('');
 
 	const handleInputChange = (e) => {
@@ -31,41 +32,40 @@ export const ContactForm = () => {
 			},
 		};
 
-		const answer = await fetch('/mailing', {
-			method: 'POST',
-			body: JSON.stringify(postAnswer),
-			headers: {
-				'Content-type': 'application/json; charset=UTF-8',
-			},
-		});
-		if (answer.status === 200) {
-			setSubmitted(true);
+		try {
+			const answer = await fetch('/mailing', {
+				method: 'POST',
+				body: JSON.stringify(postAnswer),
+				headers: {
+					'Content-type': 'application/json; charset=UTF-8',
+				},
+			});
+
+			if (!answer.ok) {
+				setAnyError(true);
+				setResponseMessage(`Error ${answer.status}: ${answer.statusText}`);
+			} else if (answer.status === 200) {
+				setSubmitted(true);
+				setResponseMessage(
+					subscribed
+						? 'Thank you for your message and for subscribing to our newsletter!'
+						: 'Thank you for your message!'
+				);
+			}
+		} catch (error) {
+			setAnyError(true);
+			setResponseMessage('Network error occurred.');
 		}
 
-		if (subscribed) {
-			setResponseMessage(
-				'Thank you for your message and to have subscribed to a future newsletter!'
-			);
-		} else {
-			setResponseMessage('Thank you for your message !');
-		}
-
-		setFormData({
-			name: '',
-			email: '',
-			message: '',
-		});
+		setFormData({ name: '', email: '', message: '' });
 		setSubscribed('');
 	};
 
-	return (
+	const outcome = () => (
 		<div>
-			{submitted ? (
-				<div>
-					<h2>{responseMessage}</h2>
-					<p>We will have contact with you soon!</p>
-				</div>
-			) : (
+			{submitted && <h2>{responseMessage}</h2>}
+			{anyError && <h2>{responseMessage}</h2>}
+			{!submitted && (
 				<div className="p-3 mx-auto max-w-lg bg-white ">
 					<h1 className="text-3xl text-gray-800 font-extrabold text-center">
 						Get in Touch
@@ -121,4 +121,6 @@ export const ContactForm = () => {
 			)}
 		</div>
 	);
+
+	return outcome();
 };
