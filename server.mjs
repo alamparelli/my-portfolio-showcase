@@ -15,10 +15,19 @@ const app = express();
 const port = 3000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
 const limiter = rateLimit({
 	// in 1 minute allow 30 Requests for 1 IP
-	windowMs: 1 * 60 * 1000,
-	max: 60,
+	windowMs: 5 * 60 * 1000,
+	max: 100,
+	standardHeaders: true,
+	legacyHeaders: false,
+});
+
+const limiterContactForm = rateLimit({
+	// in 1 minute allow 5 Requests for 1 IP
+	windowMs: 60 * 60 * 1000,
+	max: 5,
 	standardHeaders: true,
 	legacyHeaders: false,
 });
@@ -30,10 +39,9 @@ app.use(bodyParser.json());
 
 app.disable('x-powered-by');
 
-app.use(limiter);
-app.use(routerProjects);
-app.use(routerSub);
-app.use(routerProfile);
+app.use(limiterContactForm, routerSub);
+app.use(limiter, routerProjects);
+app.use(limiter, routerProfile);
 
 app.use(express.static(path.join(__dirname, 'build/')));
 
