@@ -24,28 +24,21 @@ const limiter = rateLimit({
 	legacyHeaders: false,
 });
 
-const limiterContactForm = rateLimit({
-	// in 1 minute allow 5 Requests for 1 IP
-	windowMs: 60 * 60 * 1000,
-	max: 5,
-	standardHeaders: true,
-	legacyHeaders: false,
-});
-
 app.use(helmet());
 app.use(cors());
+app.use(limiter);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.disable('x-powered-by');
 
-app.use(limiterContactForm, routerSub);
-app.use(limiter, routerProjects);
-app.use(limiter, routerProfile);
+app.use(routerSub);
+app.use(routerProjects);
+app.use(routerProfile);
 
 app.use(express.static(path.join(__dirname, 'build/')));
 
-app.get('*', limiter, (req, res) => {
+app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
