@@ -7,7 +7,7 @@ WORKDIR /app
 
 # Install dependencies for React app
 COPY package*.json ./
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 # Copy all files and build the React app with Tailwind CSS
 COPY . .
@@ -23,7 +23,7 @@ WORKDIR /app
 
 # Copy package.json and install dependencies
 COPY package*.json ./
-RUN npm install --only=production --legacy-peer-deps
+RUN npm install --only=production 
 
 # Copy the build files from the previous stage
 COPY --from=build /app/build ./build
