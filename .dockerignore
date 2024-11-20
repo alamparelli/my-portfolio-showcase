@@ -8,7 +8,6 @@
 .prettierignore
 
 # Optionally, you can exclude node_modules if you're installing dependencies inside the Docker container
-node_modules
 others
 
 # Other unnecessary files or directories
