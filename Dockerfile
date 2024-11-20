@@ -1,6 +1,6 @@
 # With Help of ChatGPT.
 # Stage 1: Build the React app with Tailwind CSS
-FROM node:alpine AS build
+FROM node:16-alpine AS build
 
 # Set working directory
 WORKDIR /app
@@ -16,7 +16,7 @@ COPY . .
 RUN npm run build:css && npm run build
 
 # Stage 2: Setup the Express server
-FROM node:alpine
+FROM node:16-alpine
 
 # Set working directory
 WORKDIR /app
