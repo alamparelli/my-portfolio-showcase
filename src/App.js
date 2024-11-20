@@ -9,9 +9,9 @@ import { Project } from './pages/Project';
 function App() {
 	return (
 		<Router className="bg-neutral-200 static">
-			<header>
+			<head>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-			</header>
+			</head>
 			<NavigationBar />
 			<hr className="pt-7 pb-4"></hr>
 			<div className="font-mono px-20 py-5 sm:px-32 lg:px-80">

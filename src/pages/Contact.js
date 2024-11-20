@@ -22,24 +22,35 @@ export const ContactForm = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
+		// const postAnswer = {
+		// 	name: formData.name,
+		// 	email: formData.email,
+		// 	message: formData.message,
+		// 	subscribed: {
+		// 		subscribed: subscribed,
+		// 		dateSubscribed: new Date(),
+		// 	},
+		// };
 		const postAnswer = {
 			name: formData.name,
 			email: formData.email,
 			message: formData.message,
-			subscribed: {
-				subscribed: subscribed,
-				dateSubscribed: new Date(),
-			},
+			site: 'portfolio',
 		};
 
 		try {
-			const answer = await fetch('/mailing', {
-				method: 'POST',
-				body: JSON.stringify(postAnswer),
-				headers: {
-					'Content-type': 'application/json; charset=UTF-8',
-				},
-			});
+			const answer = await fetch(
+				'https://us-central1-blog-88107.cloudfunctions.net/subscribe',
+				{
+					method: 'POST',
+					body: JSON.stringify(postAnswer),
+					headers: {
+						'Content-Type': 'application/json',
+						Accept: 'application/json',
+					},
+					mode: 'cors',
+				}
+			);
 
 			if (!answer.ok) {
 				setAnyError(true);
@@ -54,6 +65,7 @@ export const ContactForm = () => {
 			}
 		} catch (error) {
 			setAnyError(true);
+			console.log(error);
 			setResponseMessage('Network error occurred.');
 		}
 
@@ -98,7 +110,7 @@ export const ContactForm = () => {
 							value={formData.message}
 							onChange={handleInputChange}
 						></textarea>
-						<div className="w-full text-gray-800">
+						{/* <div className="w-full text-gray-800">
 							<input
 								type="checkbox"
 								id="subscribe"
@@ -109,12 +121,12 @@ export const ContactForm = () => {
 							<span htmlFor="subscribe" className="px-4 pt-3 text-sm">
 								Subscribe for more news.
 							</span>
-						</div>
+						</div> */}
 						<button
 							type="submit"
 							className="text-white bg-gray-300 hover:bg-gray-400 tracking-wide rounded-md text-sm px-4 py-3 w-full"
 						>
-							Send
+							Subscribe to the Newsletter
 						</button>
 					</form>
 				</div>

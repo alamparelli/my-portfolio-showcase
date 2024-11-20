@@ -24,7 +24,32 @@ const limiter = rateLimit({
 	legacyHeaders: false,
 });
 
-app.use(helmet());
+app.use(
+	helmet({
+		contentSecurityPolicy: {
+			directives: {
+				defaultSrc: ["'none'"], // Restrictif par défaut
+				connectSrc: [
+					"'self'",
+					'https://us-central1-blog-88107.cloudfunctions.net',
+				],
+				styleSrc: ["'self'", 'https://cdnjs.cloudflare.com'],
+				styleSrcElem: ["'self'", 'https://cdnjs.cloudflare.com'],
+				fontSrc: ["'self'", 'https://cdnjs.cloudflare.com'],
+				scriptSrc: ["'self'", (req, res) => `'nonce-${res.locals.nonce}'`],
+				imgSrc: ["'self'"],
+				manifestSrc: ["'self'"],
+				objectSrc: ["'none'"],
+				baseUri: ["'none'"],
+				frameAncestors: ["'none'"],
+				formAction: ["'self'"],
+				upgradeInsecureRequests: [],
+				reportUri: '/csp-violation-report',
+			},
+			reportOnly: false,
+		},
+	})
+);
 app.use(cors());
 app.use(limiter);
 app.use(bodyParser.urlencoded({ extended: false }));
